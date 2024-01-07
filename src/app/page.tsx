@@ -1,5 +1,5 @@
 // components
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, FooterWithSitemap } from "@/components";
 
 // sections
 import Hero from "./hero";
@@ -8,18 +8,19 @@ import AboutEvent from "./about-event";
 import OurStats from "./our-stats";
 import EventContent from "./event-content";
 import Faq from "./faq";
+import Gallery from "./gallery";
 
 export default function Portfolio() {
   return (
     <>
       <Navbar />
       <Hero />
-      <SponsoredBy />
       <AboutEvent />
       <OurStats />
-      <EventContent />
-      <Faq />
-      <Footer />
+      <Gallery />
+      {/* <Faq />| */}
+      <SponsoredBy />
+      <FooterWithSitemap />
     </>
   );
 }

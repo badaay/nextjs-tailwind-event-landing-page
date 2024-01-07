@@ -14,6 +14,7 @@ import {
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
+import ScrollNavLink from "./scroll-nav-link";
 
 interface NavItemProps {
   children: React.ReactNode;
@@ -38,17 +39,19 @@ function NavItem({ children, href }: NavItemProps) {
 
 const NAV_MENU = [
   {
-    name: "Page",
+    name: "Our Event",
     icon: RectangleStackIcon,
+    href: "#event"
   },
   {
-    name: "Account",
+    name: "Stats",
     icon: UserCircleIcon,
+    href: "#stats"
   },
   {
-    name: "Docs",
+    name: "Gallery",
     icon: CommandLineIcon,
-    href: "https://www.material-tailwind.com/docs/react/installation",
+    href: "#gallery",
   },
 ];
 
@@ -92,27 +95,33 @@ export function Navbar() {
           color={isScrolling ? "blue-gray" : "white"}
           className="text-lg font-bold"
         >
-          Material Tailwind
+          <ScrollNavLink href="/" name="Your Name here" />
+
         </Typography>
         <ul
           className={`ml-10 hidden items-center gap-6 lg:flex ${
             isScrolling ? "text-gray-900" : "text-white"
           }`}
         >
-          {NAV_MENU.map(({ name, icon: Icon, href }) => (
+          {/* {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href}>
               <Icon className="h-5 w-5" />
               <span>{name}</span>
             </NavItem>
+          ))} */}
+          {NAV_MENU.map(({ name, icon: Icon, href }) => (
+            <li key={name}>
+              <ScrollNavLink href={href} name={name} />
+            </li>
           ))}
         </ul>
         <div className="hidden items-center gap-4 lg:flex">
-          <Button color={isScrolling ? "gray" : "white"} variant="text">
+          {/* <Button color={isScrolling ? "gray" : "white"} variant="text">
             Log in
           </Button>
           <a href="https://www.material-tailwind.com/blocks" target="_blank">
             <Button color={isScrolling ? "gray" : "white"}>blocks</Button>
-          </a>
+          </a> */}
         </div>
         <IconButton
           variant="text"
@@ -138,10 +147,10 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-6 flex items-center gap-4">
-            <Button variant="text">Log in</Button>
+            {/* <Button variant="text">Log in</Button>
             <a href="https://www.materila-tailwind.com/blocks" target="_blank">
               <Button color="gray">blocks</Button>
-            </a>
+            </a> */}
           </div>
         </div>
       </Collapse>
